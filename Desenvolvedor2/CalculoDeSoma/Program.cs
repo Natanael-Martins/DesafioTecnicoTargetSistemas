@@ -1,26 +1,25 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CalculoDeSoma
 {
-    using System;
-
     public class Program
     {
         static void Main()
         {
-            int INDICE = 13, SOMA = 0, K = 0;
+            // Definindo o limite de iteração e a variável para armazenar a soma
+            int indice = 13;
+            int soma = 0;
+            int contador = 1;
 
-            while (K < INDICE)
+            // Loop para calcular a soma dos números de 1 até o limite
+            while (contador <= indice)
             {
-                K = K + 1;
-                SOMA = SOMA + K;
+                soma += contador;
+                contador++;
             }
 
-            Console.WriteLine($"O valor final da SOMA é: {SOMA}");
+            // Exibir o resultado final da soma
+            Console.WriteLine($"A soma dos números de 1 até {indice} é: {soma}");
         }
     }
 }

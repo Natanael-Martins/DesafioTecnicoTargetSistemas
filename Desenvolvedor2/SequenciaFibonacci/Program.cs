@@ -6,27 +6,32 @@ namespace SequenciaFibonacci
     {
         static void Main()
         {
-            Console.Write("Digite um número para verificar à sequência de Fibonacci: ");
-            int num = int.Parse(Console.ReadLine());
+            // Solicitando ao usuário que digite um número para verificar na sequência de Fibonacci
+            Console.Write("Digite um número para verificar se ele pertence à sequência de Fibonacci: ");
+            int numero = int.Parse(Console.ReadLine());
 
-            if (IsFibonacci(num))
-                Console.WriteLine($"{num} pertence à sequência de Fibonacci.");
+            // Verificando se o número pertence à sequência de Fibonacci
+            if (PertenceAFibonacci(numero))
+                Console.WriteLine($"{numero} pertence à sequência de Fibonacci.");
             else
-                Console.WriteLine($"{num} não pertence à sequência de Fibonacci.");
+                Console.WriteLine($"{numero} não pertence à sequência de Fibonacci.");
         }
 
-        static bool IsFibonacci(int num)
+        // Método para verificar se um número pertence à sequência de Fibonacci
+        static bool PertenceAFibonacci(int numero)
         {
-            int a = 0, b = 1, temp;
+            int primeiro = 0, segundo = 1, proximo;
 
-            while (b < num)
+            // Calculando os números da sequência de Fibonacci até encontrar o número ou ultrapassá-lo
+            while (segundo < numero)
             {
-                temp = a + b;
-                a = b;
-                b = temp;
+                proximo = primeiro + segundo;
+                primeiro = segundo;
+                segundo = proximo;
             }
 
-            return b == num || num == 0;
+            // Verificando se o número é igual ao último valor calculado ou se é zero
+            return segundo == numero || numero == 0;
         }
     }
 }
